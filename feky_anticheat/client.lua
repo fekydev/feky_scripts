@@ -16,24 +16,11 @@ CreateThread(function()
     local count2 = 0      -- INF AMMO
     local make_sure = 0   -- INF AMMO
 
-    local gattcha = false -- wallhack
-
 
     while true do
         Wait(100)
     
         local playerped = GetPlayerPed(PlayerId())
-
-        -- Wallhack
-        local wallhack = GetUsingseethrough(playerped)
-
-        if gattcha == false then
-            if wallhack == 1 then
-                print("Definitly cheater!")
-                gattcha = true
-            end  
-        end
-
 
         -- Infinity Ammo
         if IsPedShooting(playerped) then
