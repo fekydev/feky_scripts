@@ -6,22 +6,19 @@
     #####################################################################
 ]]--
 
+
+--[[
+IDEAS: Kontrola podľa súčtu vešetkých vystrelených striel pomocou `fireCount`
+]]--
+
 CreateThread(function()
-    local currWeapon = 0
     local fireWeapon = nil
     local fireCount = 0
-
-    local first_count = 0 -- INF AMMO
-    local count1 = 0      -- INF AMMO
-    local count2 = 0      -- INF AMMO
-    local make_sure = 0   -- INF AMMO
-
+    local first_count, count1, count2, make_sure = 0, 0, 0, 0 -- INF AMMO
 
     while true do
-        Wait(100)
-    
+      Wait(1)
         local playerped = GetPlayerPed(PlayerId())
-
         -- Infinity Ammo
         if IsPedShooting(playerped) then
             fireWeapon = GetSelectedPedWeapon(playerped)
@@ -37,21 +34,17 @@ CreateThread(function()
             else
                 if count2 == 0 and count1 > 0 then
                     count2 = ammo
-                    print("2.Strela = "..count2)
-
+                        print("2.Strela = "..count2)
                     if count2 >= count1 then
-
                         make_sure = (make_sure + 1)
-                        
-                        if make_sure < 3 then
-                            print("Analyzing...")
-                            first_count = 0
-                            count1 = 0
-                            count2 = 0
-                        elseif make_sure == 3 then
-                            print("Definitly cheater!")
+                            if make_sure < 3 then
+                                print("Analyzing...")
+                                first_count = 0
+                                count1 = 0
+                                count2 = 0
+                            elseif make_sure == 3 then
+                                print("Definitly cheater!")
                         end
-                        
                     else 
                         print("Nothing")
                         first_count = 0
