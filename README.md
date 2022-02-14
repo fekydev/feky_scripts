@@ -1,2 +1,2 @@
-# feky_anti-infinityammo
-FiveM Script - Anti- Infinity ammo
+# feky_scripts
+FiveM Scripts made by FekyDEV
